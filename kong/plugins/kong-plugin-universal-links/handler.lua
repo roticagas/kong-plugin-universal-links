@@ -36,8 +36,8 @@ function plugin:access(conf)
   -- end
 end
 
-function plugin:header_filter(conf)
-  plugin.super.header_filter(self);
-end
+-- function plugin:header_filter(conf)
+--   plugin.super.header_filter(self);
+-- end
 
 return plugin
