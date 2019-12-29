@@ -11,27 +11,21 @@ end
 
 -- Run this when the client request hits the service
 function plugin:access(conf)
-  -- plugin.super.access(self);
-  print(conf.header_name);
-  print(conf.android_keyword);
-  print(conf.android_link);
-  print(conf.iphone_keyword);
-  print(conf.iphone_link);
-  print(conf.ipad_keyword); 
-  print(conf.ipad_link);
-
   local agent = kong.request.get_header(conf.header_name);
-  print(agent);
+
   if string.find(agent, conf.android_keyword) then
-    return kong.response.exit(302, conf.android_link);
+    kong.response.set_header(conf.android_link)
+    return kong.response.exit(302);
   end
 
   if string.find(agent, conf.iphone_keyword) then
-    return kong.response.exit(302, conf.iphone_link);
+    kong.response.set_header(conf.iphone_link)
+    return kong.response.exit(302);
   end
 
   if string.find(agent, conf.ipad_keyword) then
-    return kong.response.exit(302, conf.ipad_link);
+    kong.response.set_header(conf.ipad_link)
+    return kong.response.exit(302);
   end
 end
 
