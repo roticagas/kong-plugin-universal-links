@@ -1,10 +1,15 @@
 return {
   no_consumer = true, -- This means our plugin will not apply to specific service consumers
   fields      = {
-    header_name = {
+    header_user_agent = {
       type     = "string",
       required = true,
       default  = "User-Agent"
+    },
+    header_Location = {
+      type     = "string",
+      required = true,
+      default  = "Location"
     },
     android_keyword = {
       type     = "string",
