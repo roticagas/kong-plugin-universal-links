@@ -1,37 +1,37 @@
 return {
   no_consumer = true, -- This means our plugin will not apply to specific service consumers
   fields      = {
-    headerName = {
+    header_name = {
       type     = "string",
       required = true,
       default  = "User-Agent"
     },
-    androidKeyword = {
+    android_keyword = {
       type     = "string",
       required = false,
       default  = "Android"
     },
-    androidLink = {
+    android_link = {
       type     = "string",
       required = false,
       default  = ""
     },
-    iphoneKeyword = {
+    iphone_keyword = {
       type     = "string",
       required = false,
       default  = "iPhone"
     },
-    iphoneLink = {
+    iphone_link = {
       type     = "string",
       required = false,
       default  = ""
     }, 
-    ipadKeyword = {
+    ipad_keyword = {
       type     = "string",
       required = false,
       default  = "iPad"
     },
-    ipadLink = {
+    ipad_link = {
       type     = "string",
       required = false,
       default  = ""
