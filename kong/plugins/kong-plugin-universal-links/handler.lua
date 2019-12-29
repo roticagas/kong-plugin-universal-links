@@ -17,29 +17,21 @@ function plugin:access(conf)
   -- kong.* functions are from the PDK (plugin development kit)
   -- and do not need to be explicitly required
   self.agent = kong.request.get_header(conf.headerName)
-  print(self.agent)
 end
 
 function plugin:header_filter(conf)
   plugin.super.header_filter(self)
   
   if string.find(self.agent, conf.androidKeyword) then
-    if conf.androidLink ~= "" then
-      print("androidLink")
-      return kong.response.exit(302, conf.androidLink)
-    end
+    return kong.response.exit(302, conf.androidLink)
   end
+
   if string.find(self.agent, conf.iphoneKeyword) then
-    if conf.iphoneLink ~= "" then
-      print("iphoneLink")
-      return kong.response.exit(302, conf.iphoneLink)
-    end
+    return kong.response.exit(302, conf.iphoneLink)
   end
+  
   if string.find(self.agent, conf.ipadKeyword) then
-    if conf.ipadLink ~= "" then
-      print("ipadLink")
-      return kong.response.exit(302, conf.ipadLink)
-    end
+    return kong.response.exit(302, conf.ipadLink)
   end
 end
 
