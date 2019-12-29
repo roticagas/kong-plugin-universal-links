@@ -11,7 +11,7 @@ end
 
 -- Run this when the client request hits the service
 function plugin:access(conf)
-  plugin.super.access(self);
+  -- plugin.super.access(self);
   -- print(conf.headerName);
   -- print(conf.androidKeyword);
   -- print(conf.androidLink);
