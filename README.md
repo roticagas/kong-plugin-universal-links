@@ -71,3 +71,10 @@ add volumes ./kong-plugin-universal-links/kong/plugins/kong-plugin-universal-lin
 ![configure](_readme/konga_configure_plugin.png)
 
 
+### P.S
+
+when update plugin use reload command:
+
+        docker exec <kong name> kong reload
+        
+        
