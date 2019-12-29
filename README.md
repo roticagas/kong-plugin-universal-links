@@ -4,6 +4,12 @@
 
 ### docker-compose.yml
 
+kong version: 0.14
+
+add environment KONG_PLUGINS: bundled,kong-plugin-universal-links
+
+add volumes ./kong-plugin-universal-links/kong/plugins/kong-plugin-universal-links:/usr/local/share/lua/5.1/kong/plugins/kong-plugin-universal-links
+
 
     version: "3"
 
@@ -27,7 +33,7 @@
           KONG_ADMIN_LISTEN: 0.0.0.0:8001
           KONG_PROXY_ACCESS_LOG: /dev/stdout
           KONG_PROXY_ERROR_LOG: /dev/stdout
-          KONG_PLUGINS: bundled,kong-plugin-universal-links # custom
+          KONG_PLUGINS: bundled,kong-plugin-universal-links
     custom
         depends_on:
           - kong-migration
@@ -52,7 +58,7 @@
     
 ### directory
 
->> PIC 
+![ls](_readme/ls.png)
 
 ### run
 
@@ -60,8 +66,8 @@
 
 ### konga
 
->> pic add
+![add](_readme/konga_add_plugin.png)
 
->> pic config
+![configure](_readme/konga_configure_plugin.png)
 
 
