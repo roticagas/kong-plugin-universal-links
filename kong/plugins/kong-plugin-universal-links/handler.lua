@@ -14,17 +14,17 @@ function plugin:access(conf)
   local agent = kong.request.get_header(conf.header_name);
 
   if string.find(agent, conf.android_keyword) then
-    kong.response.set_header(conf.android_link)
+    kong.response.set_header("Location", conf.android_link)
     return kong.response.exit(302);
   end
 
   if string.find(agent, conf.iphone_keyword) then
-    kong.response.set_header(conf.iphone_link)
+    kong.response.set_header("Location", conf.iphone_link)
     return kong.response.exit(302);
   end
 
   if string.find(agent, conf.ipad_keyword) then
-    kong.response.set_header(conf.ipad_link)
+    kong.response.set_header("Location", conf.ipad_link)
     return kong.response.exit(302);
   end
 end
