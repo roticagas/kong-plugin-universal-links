@@ -24,17 +24,17 @@ function plugin:header_filter(conf)
 
   if string.find(self.agent, conf.androidKeyword) then
     if conf.androidLink ~= "" then
-      kong.response.exit(302, conf.androidLink)
+      return kong.response.exit(302, conf.androidLink)
     end
   end
   if string.find(self.agent, conf.iphoneKeyword) then
     if conf.iphoneLink ~= "" then
-      kong.response.exit(302, conf.iphoneLink)
+      return kong.response.exit(302, conf.iphoneLink)
     end
   end
   if string.find(self.agent, conf.ipadKeyword) then
     if conf.ipadLink ~= "" then
-      kong.response.exit(302, conf.ipadLink)
+      return kong.response.exit(302, conf.ipadLink)
     end
   end
 end
