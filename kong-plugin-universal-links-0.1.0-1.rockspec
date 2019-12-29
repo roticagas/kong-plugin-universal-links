@@ -1,5 +1,7 @@
-package = "universal-links"
+package = "kong-plugin-universal-links"
 version = "0.1.0-1"
+local pluginName = package:match("^kong%-plugin%-(.+)$")  -- "universal-links"
+
 source = {
    url = "git//github.com/roticagas/kong-plugin-universal-links.git"
 }
@@ -14,7 +16,7 @@ dependencies = {
 build = {
    type = "builtin",
    modules = {
-      ["kong.plugins.kong-plugin-universal-links.handler"] = "kong/plugins/kong-plugin-universal-links/handler.lua",
-      ["kong.plugins.kong-plugin-universal-links.schema"] = "kong/plugins/kong-plugin-universal-links/schema.lua"
+      ["kong.plugins."..pluginName..".handler"] = "kong/plugins/"..pluginName.."/handler.lua",
+      ["kong.plugins."..pluginName..".schema"] = "kong/plugins/"..pluginName.."/schema.lua"
    }
 }

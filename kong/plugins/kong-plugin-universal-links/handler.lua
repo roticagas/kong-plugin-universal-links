@@ -1,27 +1,27 @@
 local BasePlugin = require "kong.plugins.base_plugin"
 
-local LinkHandler = BasePlugin:extend()
+local plugin = BasePlugin:extend()
 
-LinkHandler.PRIORITY = 2000
-LinkHandler.VERSION = "0.1.0"
+plugin.PRIORITY = 1000
+plugin.VERSION = "0.1.0"
 
-function LinkHandler:new()
-  LinkHandler.super.new(self, "kong-plugin-universal-links")
+function plugin:new()
+  plugin.super.new(self, "kong-plugin-universal-links")
   self.agent = ""
 end
 
 -- Run this when the client request hits the service
-function LinkHandler:access(conf)
-  LinkHandler.super.access(self)
+function plugin:access(conf)
+  plugin.super.access(self)
 
   -- kong.* functions are from the PDK (plugin development kit)
   -- and do not need to be explicitly required
   self.agent = kong.request.get_header(conf.headerName)
 end
 
-function LinkHandler:header_filter(conf)
-  LinkHandler.super.header_filter(self)
-  if 
+function plugin:header_filter(conf)
+  plugin.super.header_filter(self)
+
   if string.find(self.agent, conf.androidKeyword) then
     if conf.androidLink ~= "" then
       kong.response.exit(302, conf.androidLink)
@@ -39,4 +39,4 @@ function LinkHandler:header_filter(conf)
   end
 end
 
-return LinkHandler
+return plugin
