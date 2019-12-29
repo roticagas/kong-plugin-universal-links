@@ -3,7 +3,7 @@ local BasePlugin = require "kong.plugins.base_plugin"
 local plugin = BasePlugin:extend()
 
 plugin.PRIORITY = 1000
-plugin.VERSION = "0.1.2"
+plugin.VERSION = "0.1.3"
 
 function plugin:new()
   plugin.super.new(self, "kong-plugin-universal-links");

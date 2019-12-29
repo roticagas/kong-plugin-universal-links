@@ -6,7 +6,7 @@ return {
       required = true,
       default  = "User-Agent"
     },
-    header_Location = {
+    header_location = {
       type     = "string",
       required = true,
       default  = "Location"
