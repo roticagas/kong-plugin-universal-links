@@ -1,5 +1,7 @@
 # kong-plugin-universal-links
 
+## Note: it's my misunderstanding. this plugin just redirect to deeplinks url
+
 ## apply with kong (docker-compose)
 
 ### docker-compose.yml
